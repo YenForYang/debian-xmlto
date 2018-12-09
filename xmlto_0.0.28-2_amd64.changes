@@ -1,0 +1,29 @@
+Format: 1.8
+Date: Sun, 18 Jun 2017 17:50:55 +0800
+Source: xmlto
+Binary: xmlto
+Built-For-Profiles: nobiarch nocheck
+Architecture: amd64
+Version: 0.0.28-2
+Distribution: unstable
+Urgency: medium
+Maintainer: ChangZhuo Chen (陳昌倬) <czchen@debian.org>
+Changed-By: ChangZhuo Chen (陳昌倬) <czchen@debian.org>
+Description:
+ xmlto      - XML-to-any converter
+Changes:
+ xmlto (0.0.28-2) unstable; urgency=medium
+ .
+   * Merge to unstable.
+Checksums-Sha1:
+ 79a28eaedac9f387ccfd1a5cfdf03025a013862e 10292 xmlto-dbgsym_0.0.28-2_amd64.deb
+ 3b9a7ffa5d388b55e973651753b1c03c34cac34f 5418 xmlto_0.0.28-2_amd64.buildinfo
+ 795fe9ba59d512b5606c003d39fef8efd63a5d9b 47860 xmlto_0.0.28-2_amd64.deb
+Checksums-Sha256:
+ c13688f55f213194898147055030651af891bd848cd7a2f9f5b7d24687c99657 10292 xmlto-dbgsym_0.0.28-2_amd64.deb
+ 0f574776aae33999a1b07c07e7c2ff277e2968a010da85c8852aeb49fc284496 5418 xmlto_0.0.28-2_amd64.buildinfo
+ 015c803004e28ae6fcb001f0203751c2b1de91e8cba8071978a21967641b73ef 47860 xmlto_0.0.28-2_amd64.deb
+Files:
+ 4048b960382387becd0e55cf73e54eec 10292 debug optional xmlto-dbgsym_0.0.28-2_amd64.deb
+ b7db319bc52c24f78ece3764997e0d48 5418 text optional xmlto_0.0.28-2_amd64.buildinfo
+ 5a8485162ee656483c7f3504f3239d75 47860 text optional xmlto_0.0.28-2_amd64.deb

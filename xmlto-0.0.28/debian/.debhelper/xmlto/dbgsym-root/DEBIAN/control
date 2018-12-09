@@ -1,0 +1,12 @@
+Package: xmlto-dbgsym
+Source: xmlto
+Version: 0.0.28-2
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: ChangZhuo Chen (陳昌倬) <czchen@debian.org>
+Installed-Size: 27
+Depends: xmlto (= 0.0.28-2)
+Section: debug
+Priority: optional
+Description: debug symbols for xmlto
+Build-Ids: 3f545b8dde3d83b0a7853af06b49cea12920fc02

@@ -1,0 +1,162 @@
+ dpkg-buildpackage -D -us -uc -ui -b -Jauto -Pnobiarch,nocheck
+dpkg-buildpackage: info: source package xmlto
+dpkg-buildpackage: info: source version 0.0.28-2
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by ChangZhuo Chen (陳昌倬) <czchen@debian.org>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ fakeroot debian/rules clean
+dh clean --parallel
+   dh_clean
+FAKEROOTKEY=987398698 LD_LIBRARY_PATH=:/opt/intel/lib/intel64_lin:/opt/intel/tbb/lib/intel64/gcc4.7 LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules clean
+ debian/rules build
+dh build --parallel
+   dh_update_autotools_config
+   dh_autoreconf
+aclocal: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+automake: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+automake: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/dev/shm/mosh/xmlto/xmlto-0.0.28'
+dh_auto_configure -- \
+    BASH="/bin/bash" \
+    PAPERCONF="/usr/bin/paperconf" \
+    DBLATEX="/usr/bin/dblatex" \
+    FOP="/usr/bin/fop" \
+    XMLTEX="/usr/bin/xmltex" \
+    PDFXMLTEX="/usr/bin/pdfxmltex" \
+    LYNX="/usr/bin/lynx" \
+    LINKS="/usr/bin/links" \
+    W3M="/usr/bin/w3m"
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/x86_64-linux-gnu --libexecdir=\${prefix}/lib/x86_64-linux-gnu --disable-maintainer-mode --disable-dependency-tracking BASH=/bin/bash PAPERCONF=/usr/bin/paperconf DBLATEX=/usr/bin/dblatex FOP=/usr/bin/fop XMLTEX=/usr/bin/xmltex PDFXMLTEX=/usr/bin/pdfxmltex LYNX=/usr/bin/lynx LINKS=/usr/bin/links W3M=/usr/bin/w3m
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... icc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether icc accepts -g... yes
+checking for icc option to accept ISO C89... none needed
+checking whether icc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of icc... none
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... none needed
+checking whether yytext is a pointer... no
+checking for mktemp... mktemp
+checking for find... find 
+checking for bash... /bin/bash
+checking for getopt... getopt
+checking for long options support in getopt... yes
+checking for paperconf... /usr/bin/paperconf
+checking for locale... /usr/bin/locale
+checking for xmllint... /usr/bin/xmllint
+checking for xsltproc... /usr/bin/xsltproc
+checking for dblatex... /usr/bin/dblatex
+checking for fop... /usr/bin/fop
+checking for xmltex... /usr/bin/xmltex
+checking for pdfxmltex... /usr/bin/pdfxmltex
+checking for default backend... DEFAULT
+checking for lynx... /usr/bin/lynx
+checking for elinks... /usr/bin/links
+checking for w3m... /usr/bin/w3m
+checking for tail... /usr/bin/tail
+checking for grep... /bin/grep
+checking for sed... /bin/sed
+checking for cp... /bin/cp
+checking for zip... /usr/bin/zip
+checking for default web browser... w3m
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating xmlto
+config.status: creating xmlto.spec
+config.status: creating config.h
+config.status: executing depfiles commands
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+make[1]: Leaving directory '/dev/shm/mosh/xmlto/xmlto-0.0.28'
+   dh_auto_build
+	make -j8
+make[1]: Entering directory '/dev/shm/mosh/xmlto/xmlto-0.0.28'
+make  all-am
+make[2]: Entering directory '/dev/shm/mosh/xmlto/xmlto-0.0.28'
+icc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/mosh/xmlto/xmlto-0.0.28=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -c -o xmlif/xmlif.o xmlif/xmlif.c
+xmlif/xmlif.l(46): warning #303: explicit type is missing ("int" assumed)
+  static ifsense;			/* sense of last `if' or unless seen */
+         ^
+
+icc  -g -O2 -fdebug-prefix-map=/dev/shm/mosh/xmlto/xmlto-0.0.28=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe  -Wl,-z,relro -Wl,-z,now -Wl,--as-needed,--gc-sections,--relax -o xmlif/xmlif xmlif/xmlif.o  
+icc: warning #10237: -lcilkrts linked in dynamically, static library not available
+make[2]: Leaving directory '/dev/shm/mosh/xmlto/xmlto-0.0.28'
+make[1]: Leaving directory '/dev/shm/mosh/xmlto/xmlto-0.0.28'
+   dh_auto_test
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary
+dh binary --parallel
+   dh_testroot
+   dh_prep
+   dh_auto_install
+	make -j8 install DESTDIR=/dev/shm/mosh/xmlto/xmlto-0.0.28/debian/xmlto AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/dev/shm/mosh/xmlto/xmlto-0.0.28'
+make[2]: Entering directory '/dev/shm/mosh/xmlto/xmlto-0.0.28'
+ /bin/mkdir -p '/dev/shm/mosh/xmlto/xmlto-0.0.28/debian/xmlto/usr/bin'
+ /bin/mkdir -p '/dev/shm/mosh/xmlto/xmlto-0.0.28/debian/xmlto/usr/bin'
+ /bin/mkdir -p '/dev/shm/mosh/xmlto/xmlto-0.0.28/debian/xmlto/usr/share/man/man1'
+ /bin/mkdir -p '/dev/shm/mosh/xmlto/xmlto-0.0.28/debian/xmlto/usr/share/xmlto'
+ /usr/bin/install -c xmlto '/dev/shm/mosh/xmlto/xmlto-0.0.28/debian/xmlto/usr/bin'
+  /usr/bin/install -c xmlif/xmlif '/dev/shm/mosh/xmlto/xmlto-0.0.28/debian/xmlto/usr/bin'
+ /usr/bin/install -c -m 644 man/man1/xmlto.1 man/man1/xmlif.1 '/dev/shm/mosh/xmlto/xmlto-0.0.28/debian/xmlto/usr/share/man/man1'
+ /bin/mkdir -p '/dev/shm/mosh/xmlto/xmlto-0.0.28/debian/xmlto/usr/share/xmlto/format/xhtml1'
+ /usr/bin/install -c -m 644  format/xhtml1/dvi format/xhtml1/fo format/xhtml1/pdf format/xhtml1/ps format/xhtml1/txt format/xhtml1/awt format/xhtml1/mif format/xhtml1/pcl format/xhtml1/svg '/dev/shm/mosh/xmlto/xmlto-0.0.28/debian/xmlto/usr/share/xmlto/format/xhtml1'
+ /bin/mkdir -p '/dev/shm/mosh/xmlto/xmlto-0.0.28/debian/xmlto/usr/share/xmlto/format/docbook'
+ /usr/bin/install -c -m 644  format/docbook/dvi format/docbook/epub format/docbook/fo format/docbook/html format/docbook/html-nochunks format/docbook/xhtml format/docbook/xhtml-nochunks format/docbook/man format/docbook/pdf format/docbook/ps format/docbook/txt format/docbook/htmlhelp format/docbook/javahelp format/docbook/mif format/docbook/pcl format/docbook/svg format/docbook/awt '/dev/shm/mosh/xmlto/xmlto-0.0.28/debian/xmlto/usr/share/xmlto/format/docbook'
+ /bin/mkdir -p '/dev/shm/mosh/xmlto/xmlto-0.0.28/debian/xmlto/usr/share/xmlto/format/fo'
+ /usr/bin/install -c -m 644  format/fo/ps format/fo/awt format/fo/mif format/fo/pcl format/fo/svg format/fo/txt format/fo/dvi format/fo/pdf '/dev/shm/mosh/xmlto/xmlto-0.0.28/debian/xmlto/usr/share/xmlto/format/fo'
+ /usr/bin/install -c -m 644  xmlto.mak '/dev/shm/mosh/xmlto/xmlto-0.0.28/debian/xmlto/usr/share/xmlto/.'
+make[2]: Leaving directory '/dev/shm/mosh/xmlto/xmlto-0.0.28'
+make[1]: Leaving directory '/dev/shm/mosh/xmlto/xmlto-0.0.28'
+   dh_installdocs
+   debian/rules override_dh_installchangelogs
+make[1]: Entering directory '/dev/shm/mosh/xmlto/xmlto-0.0.28'
+dh_installchangelogs NEWS
+make[1]: Leaving directory '/dev/shm/mosh/xmlto/xmlto-0.0.28'
+   dh_installman
+   dh_perl
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+   dh_fixperms
+   dh_missing
+   dh_strip
+   dh_makeshlibs
+   dh_shlibdeps
+dpkg-shlibdeps: warning: deprecated use of LD_LIBRARY_PATH with private library directory which interferes with cross-building, please use -l option instead
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/xmlto/usr/bin/xmlif was not linked against libdl.so.2 (it uses none of the library's symbols)
+   dh_installdeb
+   dh_gencontrol
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package 'xmlto' in '../xmlto_0.0.28-2_amd64.deb'.
+dpkg-deb: building package 'xmlto-dbgsym' in '../xmlto-dbgsym_0.0.28-2_amd64.deb'.
+FAKEROOTKEY=2004510140 LD_LIBRARY_PATH=:/opt/intel/lib/intel64_lin:/opt/intel/tbb/lib/intel64/gcc4.7 LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules binary
+ dpkg-genbuildinfo --build=binary
+ dpkg-genchanges --build=binary >../xmlto_0.0.28-2_amd64.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+Now running lintian xmlto_0.0.28-2_amd64.changes ...
+W: xmlto: hardening-no-pie usr/bin/xmlif
+Finished running lintian.
